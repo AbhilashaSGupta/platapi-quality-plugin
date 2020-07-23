@@ -38,7 +38,7 @@ repositories {
 sourceCompatibility = 1.11
 
 project.group 'com.godaddy.platapi.gradle'
-project.version '2.0'
+project.version '0.1.2'
 project.description = 'Gradle plugin for Platapi team'
 
 dependencies {

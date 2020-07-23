@@ -15,7 +15,7 @@ class PluginConfiguration {
 
   @CompileStatic(TypeCheckingMode.SKIP)
   PluginConfiguration(Project project) {
-    sourceSets = [project.sourceSets.main] as Collection<SourceSet>
+    sourceSets = [project.sourceSets.main, project.sourceSets.test] as Collection<SourceSet>
   }
 
   String checkstyleVersion = '8.34'
@@ -147,6 +147,12 @@ class PluginConfiguration {
    * Full list of options: http://docs.oracle.com/javase/8/docs/technotes/tools/windows/javac.html#BHCJCABJ
    */
   List<String> lintOptions = ['deprecation', 'unchecked']
+
+  /**
+   * Checkstyle is a failure by default. If this needs to be a warning, change this to false to allow
+   * checkstyle errors to go through.
+   */
+  boolean checkstyleStrict = true
 
   /**
    * Strict quality leads to build fail on any violation found. If disabled, all violation

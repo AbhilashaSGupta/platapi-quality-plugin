@@ -125,7 +125,7 @@ class EntryPoint implements Plugin<Project> {
         checkstyle {
           showViolations = true
           toolVersion = platapiConfig.checkstyleVersion
-          ignoreFailures = !platapiConfig.strict
+          ignoreFailures = !platapiConfig.checkstyleStrict
           configFile = configLoader.resolveCheckstyleConfig(false)
           sourceSets = platapiConfig.sourceSets
         }
