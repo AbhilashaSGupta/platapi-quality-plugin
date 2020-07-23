@@ -1,9 +1,8 @@
 # Platapi Gradle Plugin
-==========================================
+
 This plugin enables and configures quality checks for java projects.
 
-## Usage:
-==========================================
+## Configurations
 To activate, add the following to your build gradle
 ```
 buildscript {
@@ -65,8 +64,6 @@ All plugins are configured to produce xml and html reports. For spotbugs html re
 All plugins violations are printed into console in unified format which makes console output good enough for fixing violations.
 
 ## Additional Configurations/Overrides
-==========================================
-
 Plugin may be configured with 'platapiPluginConfiguration' closure.
 
 For example:
@@ -77,7 +74,7 @@ platapiPluginConfiguration {
 ```
 sets checkstyle to warning level instead of error.
 
-
+## Custom checkstyle configs
 By default, plugin use bundled platapi gradle plugins configurations. These configs could be copied into project with 'initPlatapiPluginConfigTask' task (into quality.configDir directory). These custom configs will be used in priority with fallback to default config if config not found.
 
 Special tasks registered for each source set: checkplatapiTaskMain, checkplatapiTaskTest etc. Tasks group registered platapi gradle plugins tasks for specific source set. This allows running platapi gradle plugins directly without tests (comparing to using 'check' task). Also, allows running platapi gradle plugins on source sets not enabled for main 'check' (example case: run quality checks for tests (time to time)). These tasks may be used even when quality tasks are disabled (platapiPluginConfiguration.enabled = false).
