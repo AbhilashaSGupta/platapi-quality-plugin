@@ -1,0 +1,33 @@
+# ignore all IJ files except runConfigurations and style checker config
+.idea/*
+!.idea/runConfigurations
+!.idea/checkstyle-idea.xml
+!.idea/codeStyleSettings.xml
+*.iml
+
+# copied from GitHub's standard Gradle project .gitignore
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# for vim
+*.swp
+*.swo
+
+# generated docker files
+Dockerfile
+
+#DS_Store
+*.DS_Store*
+
+out
+
+.vertx/
