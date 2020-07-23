@@ -1,0 +1,84 @@
+{
+  "id" : "com.godaddy.platapi.gradle:platapi-gradle-plugin:2.0",
+  "artifacts" : [ {
+    "type" : "jar",
+    "sha1" : "3788de3ad0b9ab806dec559e477547330274f747",
+    "md5" : "12e53aa58f5417c81aa4f4443f801dac",
+    "name" : "platapi-gradle-plugin-2.0.jar",
+    "path" : "maven-api-customers-platapi-gradle-plugin-local/com/godaddy/platapi/gradle/platapi-gradle-plugin/2.0/platapi-gradle-plugin-2.0.jar"
+  }, {
+    "type" : "module",
+    "sha1" : "82f4c73267dca36c92539c1323f5691ed68e6855",
+    "md5" : "17e35721238cef24a9b8e78f326fbf72",
+    "name" : "platapi-gradle-plugin-2.0.module",
+    "path" : "maven-api-customers-platapi-gradle-plugin-local/com/godaddy/platapi/gradle/platapi-gradle-plugin/2.0/platapi-gradle-plugin-2.0.module"
+  }, {
+    "type" : "pom",
+    "sha1" : "603effc0c4bdf7d79e16927503b0d81a9b5afe5e",
+    "md5" : "b7796635d5fddfab9145a7e641d0c030",
+    "name" : "platapi-gradle-plugin-2.0.pom",
+    "path" : "maven-api-customers-platapi-gradle-plugin-local/com/godaddy/platapi/gradle/platapi-gradle-plugin/2.0/platapi-gradle-plugin-2.0.pom"
+  } ],
+  "excludedArtifacts" : [ ],
+  "dependencies" : [ {
+    "type" : "jar",
+    "sha1" : "e5c3ffa4f4ece3b3a7eab776ed6baaff932fce66",
+    "md5" : "0b5265e62ad2ed86bb80bdba9bd510e1",
+    "id" : "org.codenarc:CodeNarc:1.5",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "2a651d83daa8d019263bd6bcbf561b9f17c7d2ed",
+    "md5" : "bd7e8c21beab47c38aeb0e7a4519ad33",
+    "id" : "org.codehaus.groovy:groovy-ant:2.3.11",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "d83c40e24cc7e29048f0cd870dc9c507ac467708",
+    "md5" : "01e6651ccedad1d1f590c12980a3e071",
+    "id" : "org.codehaus.groovy:groovy-groovydoc:2.3.11",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "5fe11973a0b4076df7f5c0a7cf90a557fd52261e",
+    "md5" : "dd6df890bb5eebd1b1f866fb6a6dbad5",
+    "id" : "org.codehaus.groovy:groovy-templates:2.3.11",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "725838fbf725691bfd18b4f98ee6267fe726c544",
+    "md5" : "1d98155fcea2f379baab813147554d49",
+    "id" : "org.codehaus.groovy:groovy-xml:2.3.11",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "59410835d88006e58129e2d62b309e81e1e538a5",
+    "md5" : "8f3afd8b31c5f55a57604257a793f424",
+    "id" : "org.codehaus.groovy:groovy:2.3.11",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "706273cc3529d2851400620b0ba07aaa681dffe4",
+    "md5" : "fe7b4994f0cc28f8beeb3988610bd982",
+    "id" : "org.gmetrics:GMetrics:1.0",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "416003ec88f07be32dc4433a6e27da6c8f38d166",
+    "md5" : "e1ce0c0d3068880d109b53e032ec81bf",
+    "id" : "org.apache.ant:ant-antlr:1.9.3",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "d1cafa6f9f174a6ca335b257e3b15c485d2c054a",
+    "md5" : "a75cde410370c52d50ae608292ebf0f0",
+    "id" : "org.apache.ant:ant-junit:1.9.3",
+    "scopes" : [ "codenarc" ]
+  }, {
+    "type" : "jar",
+    "sha1" : "e1456e395fffae9d6fef7272838037d64904b3f9",
+    "md5" : "b2d76c03489f73c06c82ac540761b6fa",
+    "id" : "gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.4.4",
+    "scopes" : [ "compileClasspath", "runtimeClasspath" ]
+  } ]
+}

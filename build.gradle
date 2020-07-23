@@ -1,0 +1,123 @@
+buildscript {
+    repositories {
+        maven {
+            credentials {
+                username ci_pull_user
+                password ci_pull_password
+            }
+            url 'https://artifactory.secureserver.net/artifactory/java-virt'
+        }
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+    }
+}
+
+plugins {
+    id 'java-gradle-plugin'
+    id 'groovy'
+    id 'jacoco'
+    id 'ru.vyarus.quality' version '4.3.0'
+    id 'ru.vyarus.mkdocs' version '2.0.1'
+    id "com.gradle.plugin-publish" version '0.11.0'
+}
+apply plugin: 'maven-publish'
+apply plugin: "com.jfrog.artifactory"
+
+repositories {
+    gradlePluginPortal()
+    maven {
+        credentials {
+            username ci_pull_user
+            password ci_pull_password
+        }
+        url "https://artifactory.secureserver.net/artifactory/java-virt"
+    }
+}
+
+sourceCompatibility = 1.11
+
+project.group 'com.godaddy.platapi.gradle'
+project.version '2.0'
+project.description = 'Gradle plugin for Platapi team'
+
+dependencies {
+    implementation group: 'gradle.plugin.com.github.spotbugs.snom', name: 'spotbugs-gradle-plugin', version: '4.4.4'
+}
+
+
+mkdocs.publish {
+    docPath = '4.3.0'
+    rootRedirect = true
+}
+
+
+wrapper {
+    gradleVersion = '6.5.1'
+}
+
+gradlePlugin {
+    plugins {
+        platapiPlugin.id = 'com.godaddy.platapi.gradle'
+        platapiPlugin.displayName = project.description
+        platapiPlugin.implementationClass = 'com.godaddy.platapi.gradle.EntryPoint'
+    }
+}
+
+pluginBundle {
+    description = 'Common build steps for the platapi projects'
+    tags = ['java', 'groovy', 'quality', 'checkstyle', 'pmd', 'cpd', 'spotbugs', 'codenarc']
+
+    mavenCoordinates {
+        groupId = project.group
+        artifactId = project.name
+    }
+}
+
+quality {
+    strict = false
+}
+
+//test {
+//    testLogging {
+//        events 'skipped', 'failed', 'standard_error'
+//        exceptionFormat 'full'
+//    }
+//    maxHeapSize = '2g'
+//    forkEvery = 4
+//    doLast {
+//        sleep(1000)
+//    }
+//}
+
+
+//jacocoTestReport.reports.xml.enabled = true
+
+
+artifactory {
+    contextUrl = 'https://artifactory.secureserver.net/artifactory'
+    publish {
+        repository {
+            repoKey = 'maven-api-customers-platapi-gradle-plugin-local'
+
+            // The username/password should be the credentials for the vertx-customers effort in openstack.
+            // The ci_api_customers_user and ci_api_customers_password is pulled from your ~/.gradle/gradle.properties file.
+
+            username = ci_api_customers_user
+            password = ci_api_customers_password
+            maven = true
+            defaults {
+                publications('PlatapiGradlePlugin')
+            }
+        }
+    }
+}
+
+publishing {
+    publications {
+        PlatapiGradlePlugin(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
