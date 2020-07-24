@@ -20,9 +20,9 @@ plugins {
     id 'ru.vyarus.quality' version '4.3.0'
     id 'ru.vyarus.mkdocs' version '2.0.1'
     id "com.gradle.plugin-publish" version '0.11.0'
+    id 'maven-publish'
+    id "com.jfrog.artifactory"
 }
-apply plugin: 'maven-publish'
-apply plugin: "com.jfrog.artifactory"
 
 repositories {
     gradlePluginPortal()
@@ -37,7 +37,7 @@ repositories {
 
 sourceCompatibility = 1.11
 
-project.group 'com.godaddy.platapi.gradle'
+project.group 'com.godaddy.platapi.quality'
 project.version '0.1.0'
 project.description = 'Gradle quality checks plugin for Platapi team'
 
@@ -58,9 +58,9 @@ wrapper {
 
 gradlePlugin {
     plugins {
-        platapiPlugin.id = 'com.godaddy.platapi.gradle'
+        platapiPlugin.id = 'com.godaddy.platapi.quality'
         platapiPlugin.displayName = project.description
-        platapiPlugin.implementationClass = 'com.godaddy.platapi.gradle.EntryPoint'
+        platapiPlugin.implementationClass = 'com.godaddy.platapi.quality.EntryPoint'
     }
 }
 
@@ -78,22 +78,6 @@ quality {
     strict = false
 }
 
-//test {
-//    testLogging {
-//        events 'skipped', 'failed', 'standard_error'
-//        exceptionFormat 'full'
-//    }
-//    maxHeapSize = '2g'
-//    forkEvery = 4
-//    doLast {
-//        sleep(1000)
-//    }
-//}
-
-
-//jacocoTestReport.reports.xml.enabled = true
-
-
 artifactory {
     contextUrl = 'https://artifactory.secureserver.net/artifactory'
     publish {
@@ -107,7 +91,7 @@ artifactory {
             password = ci_api_customers_password
             maven = true
             defaults {
-                publications('PlatapiGradlePlugin')
+                publications('PlatapiQualityPlugin')
             }
         }
     }
@@ -115,7 +99,7 @@ artifactory {
 
 publishing {
     publications {
-        PlatapiGradlePlugin(MavenPublication) {
+        PlatapiQualityPlugin(MavenPublication) {
             from components.java
         }
     }

@@ -1,6 +1,6 @@
-package com.godaddy.platapi.gradle.task
+package com.godaddy.platapi.quality.task
 
-import com.godaddy.platapi.gradle.ConfigLoader
+import com.godaddy.platapi.quality.ConfigLoader
 import groovy.transform.CompileStatic
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input

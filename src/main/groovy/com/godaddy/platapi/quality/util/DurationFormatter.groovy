@@ -1,4 +1,4 @@
-package com.godaddy.platapi.gradle.util
+package com.godaddy.platapi.quality.util
 
 import groovy.transform.CompileStatic
 

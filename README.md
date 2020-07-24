@@ -16,11 +16,11 @@ buildscript {
     }
   }
   dependencies {
-    classpath 'com.godaddy.platapi.gradle:platapi-quality-plugin:0.1.2'
+    classpath 'com.godaddy.platapi.quality:platapi-quality-plugin:0.1.2'
   }
 }
 
-apply plugin: 'com.godaddy.platapi.gradle'
+apply plugin: 'com.godaddy.platapi.quality'
 
 ```
 

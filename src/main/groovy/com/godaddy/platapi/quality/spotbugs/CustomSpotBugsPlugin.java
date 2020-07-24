@@ -1,9 +1,9 @@
-package com.godaddy.platapi.gradle.spotbugs;
+package com.godaddy.platapi.quality.spotbugs;
 
 import com.github.spotbugs.snom.SpotBugsBasePlugin;
 import com.github.spotbugs.snom.SpotBugsExtension;
 import com.github.spotbugs.snom.internal.SpotBugsTaskFactory;
-import com.godaddy.platapi.gradle.PluginConfiguration;
+import com.godaddy.platapi.quality.PluginConfiguration;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.JavaBasePlugin;

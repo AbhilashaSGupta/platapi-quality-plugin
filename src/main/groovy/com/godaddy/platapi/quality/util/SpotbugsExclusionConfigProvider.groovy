@@ -1,8 +1,8 @@
-package com.godaddy.platapi.gradle.util
+package com.godaddy.platapi.quality.util
 
 import com.github.spotbugs.snom.SpotBugsTask
-import com.godaddy.platapi.gradle.ConfigLoader
-import com.godaddy.platapi.gradle.PluginConfiguration
+import com.godaddy.platapi.quality.ConfigLoader
+import com.godaddy.platapi.quality.PluginConfiguration
 import groovy.transform.CompileStatic
 import org.gradle.api.file.RegularFile
 import org.slf4j.Logger

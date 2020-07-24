@@ -1,6 +1,6 @@
-package com.godaddy.platapi.gradle.report
+package com.godaddy.platapi.quality.report
 
-import com.godaddy.platapi.gradle.ConfigLoader
+import com.godaddy.platapi.quality.ConfigLoader
 import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
 import org.gradle.api.Project

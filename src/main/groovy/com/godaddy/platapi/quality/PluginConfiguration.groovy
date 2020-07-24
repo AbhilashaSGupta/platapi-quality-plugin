@@ -1,4 +1,4 @@
-package com.godaddy.platapi.gradle
+package com.godaddy.platapi.quality
 
 import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
