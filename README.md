@@ -1,6 +1,16 @@
 # Platapi Quality Plugin
 
-This plugin enables and configures quality checks for java projects.
+Inspired heavily from [https://github.com/xvik/gradle-quality-plugin](gradle quality plugin).
+
+This plugin enables and configures quality checks for java projects using provided configs.
+
+## Main Features
+- Zero configuration by default: provided opinionated configs applied to all quality plugins
+- Default configuration files may be customized
+- Adds extra javac lint options to see more warnings
+- Complete console output for all quality plugins
+- Html and xml reports for all plugins (custom xsl used for findbugs html report because it can't generate both xml and html reports)
+- Grouping tasks to run registered quality plugins for exact source set (e.g. checkQualityMain)
 
 ## Configurations
 To activate, add the following to your build gradle
@@ -16,7 +26,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath 'com.godaddy.platapi.quality:platapi-quality-plugin:0.1.2'
+    classpath 'com.godaddy.platapi.quality:platapi-quality-plugin:0.1.0'
   }
 }
 
@@ -49,6 +59,28 @@ sourceSets {
 
 In this case Checkstyle, PMD, PMD:CPD and Spotbugs plugins are activated.
 
+To trigger the plugin:
+```
+./gradlew check
+```
+Will execute all quality plugins. Alternatively, you can use grouping task to run checks without tests.
+
+If any violations were found then build will fail with all violations printed to console. For example like this:
+
+```
+23 PMD rule violations were found in 2 files
+
+[Comments | CommentRequired] sample.(Sample.java:3)
+  headerCommentRequirement Required
+  https://pmd.github.io/pmd-5.4.0/pmd-java/rules/java/comments.html#CommentRequired
+
+...
+```
+Or you can use build task (which also calls check):
+
+```
+./gradlew build
+```
 Current setup is:
 - Checkstyle - ERROR
 - Spotbugs - WARNING
@@ -79,3 +111,16 @@ By default, plugin use bundled platapi gradle plugins configurations. These conf
 
 Special tasks registered for each source set: checkQualityMain, checkQualityTest etc. Tasks group registered platapi gradle plugins tasks for specific source set. This allows running platapi gradle plugins directly without tests (comparing to using 'check' task). Also, allows running platapi gradle plugins on source sets not enabled for main 'check' (example case: run quality checks for tests (time to time)). These tasks may be used even when quality tasks are disabled (quality.enabled = false).
 
+# Development of the plugin
+
+## To test local
+
+```
+./gradlew clean build publishToMavenLocal
+```
+
+## To release a new version
+
+```
+./gradlew clean build artifactoryPublish
+```

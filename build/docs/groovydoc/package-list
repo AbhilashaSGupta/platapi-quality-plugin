@@ -1,4 +1,4 @@
-com.godaddy.platapi.gradle
-com.godaddy.platapi.gradle.report
-com.godaddy.platapi.gradle.task
-com.godaddy.platapi.gradle.util
+com.godaddy.platapi.quality
+com.godaddy.platapi.quality.report
+com.godaddy.platapi.quality.task
+com.godaddy.platapi.quality.util

@@ -21,8 +21,9 @@ plugins {
     id 'ru.vyarus.mkdocs' version '2.0.1'
     id "com.gradle.plugin-publish" version '0.11.0'
     id 'maven-publish'
-    id "com.jfrog.artifactory"
 }
+
+apply plugin: "com.jfrog.artifactory"
 
 repositories {
     gradlePluginPortal()

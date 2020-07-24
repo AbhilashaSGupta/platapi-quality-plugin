@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.godaddy.platapi.gradle.spotbugs","l":"CustomSpotBugsPlugin"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.godaddy.platapi.quality.spotbugs","l":"CustomSpotBugsPlugin"}]

@@ -109,7 +109,7 @@ class ConfigLoader {
         if (!target.parentFile.exists() && !target.parentFile.mkdirs()) {
           throw new IllegalStateException("Failed to create directories: $target.parentFile.absolutePath")
         }
-        InputStream stream = getClass().getResourceAsStream("/com/godaddy/platapi/gradle/config/$path")
+        InputStream stream = getClass().getResourceAsStream("/com/godaddy/platapi/quality/config/$path")
         if (stream == null) {
           throw new IllegalStateException("Default config file not found in classpath: $path")
         }
