@@ -1,8 +1,6 @@
 # Platapi Quality Plugin
 
-[![Build Status](https://api-customers.jenkins.int.godaddy.com/view/plugins/job/platapi-quality-plugin/job/master/statusbadges-build/icon)]
-
-[![Grade](https://api-customers.jenkins.int.godaddy.com/view/plugins/job/platapi-quality-plugin/job/master/statusbadges-grade/icon)]
+![Build Status](https://api-customers.jenkins.int.godaddy.com/view/plugins/job/platapi-quality-plugin/job/master/statusbadges-build/icon) ![Grade](https://api-customers.jenkins.int.godaddy.com/view/plugins/job/platapi-quality-plugin/job/master/statusbadges-grade/icon)
 
 Forked from [https://github.com/xvik/gradle-quality-plugin](gradle quality plugin) and heavily customized.
 
