@@ -88,8 +88,8 @@ artifactory {
             // The username/password should be the credentials for the vertx-customers effort in openstack.
             // The ci_api_customers_user and ci_api_customers_password is pulled from your ~/.gradle/gradle.properties file.
 
-            username = effort_artifactory_user
-            password = effort_artifactory_password
+            username = ci_api_customers_user
+            password = ci_api_customers_password
             maven = true
             defaults {
                 publications('PlatapiQualityPlugin')
