@@ -1,6 +1,6 @@
 # Platapi Quality Plugin
 
-Inspired heavily from [https://github.com/xvik/gradle-quality-plugin](gradle quality plugin).
+Forked from [https://github.com/xvik/gradle-quality-plugin](gradle quality plugin) and heavily customized.
 
 This plugin enables and configures quality checks for java projects using provided configs.
 
