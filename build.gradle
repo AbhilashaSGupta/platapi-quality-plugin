@@ -38,8 +38,8 @@ repositories {
 sourceCompatibility = 1.11
 
 project.group 'com.godaddy.platapi.gradle'
-project.version '0.1.2'
-project.description = 'Gradle plugin for Platapi team'
+project.version '0.1.0'
+project.description = 'Gradle quality checks plugin for Platapi team'
 
 dependencies {
     implementation group: 'gradle.plugin.com.github.spotbugs.snom', name: 'spotbugs-gradle-plugin', version: '4.4.4'
@@ -98,7 +98,7 @@ artifactory {
     contextUrl = 'https://artifactory.secureserver.net/artifactory'
     publish {
         repository {
-            repoKey = 'maven-api-customers-platapi-gradle-plugin-local'
+            repoKey = 'maven-api-customers-platapi-quality-plugin-local'
 
             // The username/password should be the credentials for the vertx-customers effort in openstack.
             // The ci_api_customers_user and ci_api_customers_password is pulled from your ~/.gradle/gradle.properties file.

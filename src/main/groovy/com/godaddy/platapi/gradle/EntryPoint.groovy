@@ -32,7 +32,7 @@ import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.process.CommandLineArgumentProvider
 
 /**
- * This plugin enables and configures platapi gradle plugins for java and groovy projects.
+ * This plugin enables and configures static code analysis gradle plugins for java projects.
  * <p>
  * Java project is detected by presence of java sources. In this case Checkstyle, PMD, PMD:CPD and Spotbugs plugins are
  * activated. If plugins applied manually, they would be configured too (even if auto detection didn't
@@ -43,10 +43,10 @@ import org.gradle.process.CommandLineArgumentProvider
  * generated manually. All plugins violations are printed into console in unified format which makes console
  * output good enough for fixing violations.
  * <p>
- * Plugin may be configured with 'platapiPluginConfiguration' closure. See {@link PluginConfiguration} for configuration options.
+ * Plugin may be configured with 'quality' closure. See {@link PluginConfiguration} for configuration options.
  * <p>
  * By default, plugin use bundled platapi gradle plugins configurations. These configs could be copied into project
- * with 'initPlatapiPluginConfigTask' task (into quality.configDir directory). These custom configs will be used in
+ * with 'initCustomQualityConfig' task (into quality.configDir directory). These custom configs will be used in
  * priority with fallback to default config if config not found.
  * <p>
  * Special tasks registered for each source set: checkQualityMain, checkQualityTest etc.
@@ -59,13 +59,13 @@ import org.gradle.process.CommandLineArgumentProvider
 @CompileStatic
 class EntryPoint implements Plugin<Project> {
 
-  private static final String PLATAPI_TASK = 'platapiTask'
+  private static final String PLATAPI_TASK = 'checkQuality'
 
   @Override
   void apply(Project project) {
     // activated only when java plugin is enabled
     project.plugins.withType(JavaPlugin) {
-      PluginConfiguration platapiConfig = project.extensions.create('platapiPluginConfiguration', PluginConfiguration, project)
+      PluginConfiguration platapiConfig = project.extensions.create('quality', PluginConfiguration, project)
       addInitConfigTask(project)
       project.afterEvaluate {
         configureGroupingTasks(project)
@@ -82,7 +82,7 @@ class EntryPoint implements Plugin<Project> {
   }
 
   private static void addInitConfigTask(Project project) {
-    project.tasks.register('initPlatapiPluginConfig', InitPlatapiPluginConfigTask)
+    project.tasks.register('initCustomQualityConfig', InitPlatapiPluginConfigTask)
   }
 
   @CompileStatic(TypeCheckingMode.SKIP)

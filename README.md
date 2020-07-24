@@ -1,4 +1,4 @@
-# Platapi Gradle Plugin
+# Platapi Quality Plugin
 
 This plugin enables and configures quality checks for java projects.
 
@@ -16,7 +16,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath 'com.godaddy.platapi.gradle:platapi-gradle-plugin:0.1.2'
+    classpath 'com.godaddy.platapi.gradle:platapi-quality-plugin:0.1.2'
   }
 }
 
@@ -68,14 +68,14 @@ Plugin may be configured with 'platapiPluginConfiguration' closure.
 
 For example:
 ```
-platapiPluginConfiguration {
+quality {
   checkStyleStrict = false
 }
 ```
 sets checkstyle to warning level instead of error.
 
 ## Custom checkstyle configs
-By default, plugin use bundled platapi gradle plugins configurations. These configs could be copied into project with 'initPlatapiPluginConfigTask' task (into quality.configDir directory). These custom configs will be used in priority with fallback to default config if config not found.
+By default, plugin use bundled platapi gradle plugins configurations. These configs could be copied into project with 'initCustomQualityConfig' task (into quality.configDir directory). These custom configs will be used in priority with fallback to default config if config not found.
 
-Special tasks registered for each source set: checkplatapiTaskMain, checkplatapiTaskTest etc. Tasks group registered platapi gradle plugins tasks for specific source set. This allows running platapi gradle plugins directly without tests (comparing to using 'check' task). Also, allows running platapi gradle plugins on source sets not enabled for main 'check' (example case: run quality checks for tests (time to time)). These tasks may be used even when quality tasks are disabled (platapiPluginConfiguration.enabled = false).
+Special tasks registered for each source set: checkQualityMain, checkQualityTest etc. Tasks group registered platapi gradle plugins tasks for specific source set. This allows running platapi gradle plugins directly without tests (comparing to using 'check' task). Also, allows running platapi gradle plugins on source sets not enabled for main 'check' (example case: run quality checks for tests (time to time)). These tasks may be used even when quality tasks are disabled (quality.enabled = false).
 
