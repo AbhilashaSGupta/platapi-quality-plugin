@@ -7,7 +7,7 @@ import org.gradle.api.file.FileCollection
 import org.gradle.api.tasks.SourceSet
 
 /**
- * plugin configuration. Available as 'platapiPluginConfiguration' closure.
+ * plugin configuration. Available as 'quality' closure.
  *
  */
 @CompileStatic
