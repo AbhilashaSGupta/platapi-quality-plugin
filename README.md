@@ -113,15 +113,15 @@ By default, plugin use bundled platapi gradle plugins configurations. These conf
 
 Special tasks registered for each source set: checkQualityMain, checkQualityTest etc. Tasks group registered platapi gradle plugins tasks for specific source set. This allows running platapi gradle plugins directly without tests (comparing to using 'check' task). Also, allows running platapi gradle plugins on source sets not enabled for main 'check' (example case: run quality checks for tests (time to time)). These tasks may be used even when quality tasks are disabled (quality.enabled = false).
 
-# Development of the plugin
+## Development of the plugin
 
-## To test local
+### To test local
 
 ```
 ./gradlew clean build publishToMavenLocal
 ```
 
-## To release a new version
+### To release a new version
 
 ```
 ./gradlew clean build artifactoryPublish
