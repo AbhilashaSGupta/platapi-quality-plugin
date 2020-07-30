@@ -36,10 +36,10 @@ repositories {
     }
 }
 
-sourceCompatibility = 1.11
+sourceCompatibility = 1.8
 
 project.group 'com.godaddy.platapi.quality'
-project.version '0.1.0'
+project.version '0.1.1'
 project.description = 'Gradle quality checks plugin for Platapi team'
 
 dependencies {
