@@ -8,7 +8,7 @@ import com.godaddy.platapi.quality.report.PmdReporter
 import com.godaddy.platapi.quality.report.Reporter
 import com.godaddy.platapi.quality.report.SpotbugsReporter
 import com.godaddy.platapi.quality.spotbugs.CustomSpotBugsPlugin
-import com.godaddy.platapi.quality.task.InitPlatapiPluginConfigTask
+import com.godaddy.platapi.quality.task.InitCustomQualityConfigTask
 import com.godaddy.platapi.quality.util.CpdUtils
 import com.godaddy.platapi.quality.util.DurationFormatter
 import com.godaddy.platapi.quality.util.SpotbugUtils
@@ -82,7 +82,7 @@ class EntryPoint implements Plugin<Project> {
   }
 
   private static void addInitConfigTask(Project project) {
-    project.tasks.register('initCustomQualityConfig', InitPlatapiPluginConfigTask)
+    project.tasks.register('initCustomQualityConfig', InitCustomQualityConfigTask)
   }
 
   @CompileStatic(TypeCheckingMode.SKIP)

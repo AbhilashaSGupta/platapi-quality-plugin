@@ -9,16 +9,16 @@ import org.gradle.api.tasks.TaskAction
 /**
  * Task copies default configs to user directory (platapiConfig.configDir) for customization.
  * By default, does not override existing files.
- * Registered as 'initPlatapiPluginConfigTask'.
+ * Registered as 'initCustomQualityConfig'.
  *
  */
 @CompileStatic
-class InitPlatapiPluginConfigTask extends DefaultTask {
+class InitCustomQualityConfigTask extends DefaultTask {
 
   @Input
   boolean override
 
-  InitPlatapiPluginConfigTask() {
+  InitCustomQualityConfigTask() {
     group = 'build setup'
     description = 'Copies default platapi gradle plugin configuration files for customization'
   }

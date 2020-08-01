@@ -72,7 +72,7 @@ class ConfigLoader {
    */
   void initUserConfigs(boolean override) {
     init()
-    [checkstyle, pmd, cpdXsl, codenarc, spotbugsExclude, spotbugsXsl].each {
+    [checkstyle, pmd, cpdXsl, spotbugsExclude, spotbugsXsl].each {
       copyConfig(configDir, it, override)
     }
   }
