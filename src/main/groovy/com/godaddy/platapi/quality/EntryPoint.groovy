@@ -1,5 +1,6 @@
 package com.godaddy.platapi.quality
 
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import com.github.spotbugs.snom.SpotBugsTask
 import com.godaddy.platapi.quality.report.CheckstyleReporter
 import com.godaddy.platapi.quality.report.CpdReporter
@@ -30,6 +31,12 @@ import org.gradle.api.tasks.TaskProvider
 import org.gradle.api.tasks.TaskState
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.process.CommandLineArgumentProvider
+import org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension
+import org.owasp.dependencycheck.gradle.tasks.Aggregate
+import org.owasp.dependencycheck.gradle.tasks.Analyze
+import org.owasp.dependencycheck.gradle.tasks.Purge
+import org.owasp.dependencycheck.gradle.tasks.Update
+import com.github.benmanes.gradle.versions.VersionsPlugin;
 
 /**
  * This plugin enables and configures static code analysis gradle plugins for java projects.
@@ -60,6 +67,11 @@ import org.gradle.process.CommandLineArgumentProvider
 class EntryPoint implements Plugin<Project> {
 
   private static final String PLATAPI_TASK = 'checkQuality'
+  public static final String ANALYZE_TASK = 'dependencyCheckAnalyze'
+  public static final String AGGREGATE_TASK = 'dependencyCheckAggregate'
+  public static final String UPDATE_TASK = 'dependencyCheckUpdate'
+  public static final String PURGE_TASK = 'dependencyCheckPurge'
+  private static final String CHECK_EXTENSION_NAME = "dependencyCheck"
 
   @Override
   void apply(Project project) {
@@ -76,6 +88,8 @@ class EntryPoint implements Plugin<Project> {
         applyPMD(project, platapiConfig, configLoader, context.registerJavaPlugins)
         applySpotbugs(project, platapiConfig, configLoader, context.registerJavaPlugins)
         configureCpdPlugin(project, platapiConfig, configLoader, context.registerJavaPlugins)
+        configureDependencyScanTasks(project)
+        configureDependencyUpdateTask(project)
       }
     }
 
@@ -448,6 +462,18 @@ class EntryPoint implements Plugin<Project> {
         }
       }
     }
+  }
+
+  static void configureDependencyScanTasks(Project project) {
+    project.extensions.create(CHECK_EXTENSION_NAME, DependencyCheckExtension, project)
+    project.tasks.register(PURGE_TASK, Purge)
+    project.tasks.register(UPDATE_TASK, Update)
+    project.tasks.register(ANALYZE_TASK, Analyze)
+    project.tasks.register(AGGREGATE_TASK, Aggregate)
+  }
+
+  static void configureDependencyUpdateTask(Project project) {
+    project.getPluginManager().apply(VersionsPlugin.class);
   }
 
   /**
