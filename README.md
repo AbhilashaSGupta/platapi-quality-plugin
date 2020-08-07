@@ -13,6 +13,7 @@ This plugin enables and configures quality checks for java projects using provid
 - Complete console output for all quality plugins
 - Html and xml reports for all plugins (custom xsl used for findbugs html report because it can't generate both xml and html reports)
 - Grouping tasks to run registered quality plugins for exact source set (e.g. checkQualityMain)
+- Supports dependency management using owasps plugin  
 
 ## Configurations
 To activate, add the following to your build gradle
