@@ -2,18 +2,22 @@
 
 ![Build Status](https://api-customers.jenkins.int.godaddy.com/view/plugins/job/platapi-quality-plugin/job/master/statusbadges-build/icon) ![Grade](https://api-customers.jenkins.int.godaddy.com/view/plugins/job/platapi-quality-plugin/job/master/statusbadges-grade/icon)
 
-Forked from [https://github.com/xvik/gradle-quality-plugin](gradle quality plugin) and heavily customized.
+Forked from [https://github.com/xvik/gradle-quality-plugin] and heavily customized.
 
-This plugin enables and configures quality checks for java projects using provided configs.
+This plugin enables and configures quality checks for java projects
+* Checkstyle
+* PMD
+* Spotbugs
+* OWASP
 
 ## Main Features
 - Zero configuration by default: provided opinionated configs applied to all quality plugins
-- Default configuration files may be customized
+- Default configuration files may be imported to the local project and customized
 - Adds extra javac lint options to see more warnings
 - Complete console output for all quality plugins
 - Html and xml reports for all plugins (custom xsl used for findbugs html report because it can't generate both xml and html reports)
 - Grouping tasks to run registered quality plugins for exact source set (e.g. checkQualityMain)
-- Supports dependency management using owasps plugin  
+- Dependency known vulnerability detection and upgrade simplification
 
 ## Configurations
 To activate, add the following to your build gradle
@@ -98,6 +102,21 @@ All plugins are configured to produce xml and html reports. For spotbugs html re
 
 All plugins violations are printed into console in unified format which makes console output good enough for fixing violations.
 
+## Depedency Management
+
+Dependency checks are not wired automatically to `check` or `build` but can be run manually at any time.
+
+To check for dependencies with known vulnerabilities, run:
+```
+./gradlew dependencyCheckAnalyze
+```
+
+To check for dependencies that are out of date, run:
+```
+./gradlew dependencyUpdates
+```
+
+To see more options for analyzing dependencies, see https://github.com/ben-manes/gradle-versions-plugin/blob/master/README.md
 ## Additional Configurations/Overrides
 Plugin may be configured with 'platapiPluginConfiguration' closure.
 
