@@ -18,7 +18,6 @@ class ConfigLoader {
   private final String cpdXsl = 'cpd/cpdhtml.xslt'
   private final String spotbugsExclude = 'spotbugs/exclude.xml'
   private final String spotbugsXsl = 'spotbugs/html-report-style.xsl'
-  private final String codenarc = 'codenarc/codenarc.xml'
 
   Project project
   File configDir

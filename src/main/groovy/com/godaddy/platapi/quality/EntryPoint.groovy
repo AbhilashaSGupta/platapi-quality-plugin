@@ -213,7 +213,7 @@ class EntryPoint implements Plugin<Project> {
       project.configure(project) {
         spotbugs {
           toolVersion = platapiConfig.spotbugsVersion
-          ignoreFailures = !platapiConfig.strict
+          ignoreFailures = !platapiConfig.spotBugStrict
           effort = platapiConfig.spotbugsEffort
           reportLevel = platapiConfig.spotbugsLevel
           // note: default excludeFilter is not set not set in platapiConfig, instead it is directly

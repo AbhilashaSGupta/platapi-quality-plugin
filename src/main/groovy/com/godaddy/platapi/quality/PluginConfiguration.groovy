@@ -155,6 +155,12 @@ class PluginConfiguration {
   boolean checkstyleStrict = true
 
   /**
+   * Checkstyle is a failure by default. If this needs to be a warning, change this to false to allow
+   * checkstyle errors to go through.
+   */
+  boolean spotBugStrict = true
+
+  /**
    * Strict quality leads to build fail on any violation found. If disabled, all violation
    * are just printed to console (if console reporting enabled).
    * False by default.

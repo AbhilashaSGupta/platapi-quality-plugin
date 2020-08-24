@@ -17,7 +17,11 @@ This plugin enables and configures quality checks for java projects
 - Complete console output for all quality plugins
 - Html and xml reports for all plugins (custom xsl used for findbugs html report because it can't generate both xml and html reports)
 - Grouping tasks to run registered quality plugins for exact source set (e.g. checkQualityMain)
+<<<<<<< Updated upstream
 - Dependency known vulnerability detection and upgrade simplification
+=======
+- Supports dependency management using owasps plugin
+>>>>>>> Stashed changes
 
 ## Configurations
 To activate, add the following to your build gradle
@@ -149,7 +153,7 @@ Special tasks registered for each source set: checkQualityMain, checkQualityTest
 
 The jenkins file auto-magically releases from master build. To release a new version using jenkins:
 
-* Bump the project version in build.gradle
-* merge to master
-* Push to github to trigger the jenkins job
+- Bump the project version in build.gradle
+- merge to master
+- Push to github to trigger the jenkins job
 
