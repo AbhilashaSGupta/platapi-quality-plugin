@@ -127,3 +127,10 @@ Special tasks registered for each source set: checkQualityMain, checkQualityTest
 ```
 ./gradlew clean build artifactoryPublish
 ```
+
+The jenkins file auto-magically releases from master build. To release a new version using jenkins:
+
+* Bump the project version in build.gradle
+* merge to master
+* Push to github to trigger the jenkins job
+
