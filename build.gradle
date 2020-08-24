@@ -38,7 +38,7 @@ repositories {
 
 sourceCompatibility = 1.8
 
-project.version '0.1.3'
+project.version '0.1.4'
 project.group 'com.godaddy.platapi.quality'
 project.description = 'Gradle quality checks plugin for Platapi team'
 
