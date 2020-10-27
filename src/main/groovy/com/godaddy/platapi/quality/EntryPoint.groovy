@@ -170,7 +170,7 @@ class EntryPoint implements Plugin<Project> {
       project.configure(project) {
         pmd {
           toolVersion = platapiConfig.pmdVersion
-          ignoreFailures = !platapiConfig.strict
+          ignoreFailures = !platapiConfig.pmdStrict
           ruleSets = []
           ruleSetFiles = files(configLoader.resolvePmdConfig(false).absolutePath)
           sourceSets = platapiConfig.sourceSets
@@ -259,7 +259,7 @@ class EntryPoint implements Plugin<Project> {
       prj.configure(prj) {
         cpd {
           toolVersion = platapiConfig.pmdVersion
-          ignoreFailures = !platapiConfig.strict
+          ignoreFailures = !platapiConfig.pmdStrict
         }
         // only default task is affected
         tasks.named('cpdCheck').configure {
